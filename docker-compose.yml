@@ -5,7 +5,7 @@ networks:
 services:
     fastadmin:
         container_name: fastadmin
-        image: ./Dockerfile
+        image: ./dockerfile
         networks:
             - 1panel-network
         ports:
