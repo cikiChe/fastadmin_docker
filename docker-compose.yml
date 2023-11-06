@@ -1,13 +1,13 @@
 version: "3"
-networks:
-    1panel-network:
-        external: true
+# networks:
+#     1panel-network:
+#         external: true
 services:
     fastadmin:
         container_name: fastadmin
         image: ./dockerfile
-        networks:
-            - 1panel-network
+        # networks:
+        #     - 1panel-network
         ports:
             - 80:80
         restart: always
