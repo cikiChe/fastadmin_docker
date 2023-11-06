@@ -85,5 +85,5 @@ nginx -t
 nginx
 rm -rf /etc/nginx/web.conf
 
-## 你知道为什么放这个吗？
+## 你知道为什么放这个吗？为了继续执行其它命令
 exec "$@"

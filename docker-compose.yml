@@ -1,18 +1,15 @@
-version: "3"
-# networks:
-#     1panel-network:
-#         external: true
+version: '3'
+
 services:
-    fastadmin:
-        container_name: fastadmin
-        image: ./dockerfile
-        # networks:
-        #     - 1panel-network
-        ports:
-            - 80:80
-        restart: always
-        volumes:
-            - ./conf/my.cnf:/etc/nginx/sites-enabled/
-            - ./log:/var/www/html
-            - /etc/timezone:/etc/timezone:ro
-            - /etc/localtime:/etc/localtime:ro
+  fastadmin:
+    image: fastadmin:latest
+    container_name: fastadmin
+    restart: always
+    ports:
+      - "6380:6379"
+    volumes:
+      - ./conf/my.cnf:/etc/nginx/sites-enabled/
+      - ./log:/var/www/html
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+      
