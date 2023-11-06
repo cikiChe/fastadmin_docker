@@ -1,25 +1,15 @@
-networks:
-    1panel-network:
-        external: true
+version: "3"
 services:
-    mysql:
-        container_name: ${CONTAINER_NAME}
-        deploy:
-            resources:
-                limits:
-                    cpus: ${CPUS}
-                    memory: ${MEMORY_LIMIT}
-        image: cikiche:fastadmin
-        labels:
-            createdBy: Apps
+    fastadmin:
+        container_name: fastadmin
+        image: ./Dockerfile
         networks:
             - 1panel-network
         ports:
-            - ${HOST_IP}:${PANEL_APP_PORT_HTTP}:80
+            - 80:80
         restart: always
         volumes:
             - ./conf/my.cnf:/etc/nginx/sites-enabled/
             - ./log:/var/www/html
             - /etc/timezone:/etc/timezone:ro
             - /etc/localtime:/etc/localtime:ro
-version: "3"
